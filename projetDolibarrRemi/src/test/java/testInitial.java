@@ -58,7 +58,11 @@ public class testInitial {
         driver.findElement(By.xpath("//div[@id='id-right']/div/form/div[2]/table/tbody/tr[4]/td[2]/span/span/span/span[2]/b")).click();
         driver.findElement(By.name("bouton")).click();
         driver.findElement(By.linkText("Liste")).click();
-
+        try {
+            assertEquals(driver.findElement(By.xpath("//tr[3]//td[3]//a[1]")).getText(), "Nike");
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
     }
 
     @After
